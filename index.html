@@ -77,7 +77,7 @@
 <h3>2.1 Dados da profissional</h3>
 <ul>
   <li><strong>Conta Google</strong>, só se ela entrar com a conta (opcional): nome, e-mail e um identificador da conta. O login serve para o backup na nuvem e para os grupos de trabalho. O App não recebe a senha.</li>
-  <li><strong>Meu negócio:</strong> nome profissional ou do salão, telefone, chave Pix, cidade e horário de atendimento.</li>
+  <li><strong>Meu negócio:</strong> nome profissional ou do salão, telefone, chave Pix (no Brasil) ou link de pagamento (fora do Brasil), cidade e horário de atendimento.</li>
   <li><strong>Textos das mensagens</strong> de WhatsApp que ela personalizar.</li>
   <li><strong>Assinatura:</strong> a situação da assinatura (ativa, cancelada etc.) e o início do teste grátis. O pagamento é feito pelo Google Play; o App não tem acesso a dados de cartão.</li>
   <li><strong>Nome no grupo de trabalho</strong>, se ela participar de um grupo.</li>
@@ -93,14 +93,24 @@
 </ul>
 <h3>2.3 Contatos do celular</h3>
 <p>Só quando a profissional toca em importar contatos, o App pede a permissão de contatos e mostra a lista do celular. Dos contatos que ela <strong>escolher</strong>, o App copia nome, telefone e aniversário para o cadastro de clientes. Os contatos não escolhidos não são guardados nem enviados a lugar nenhum.</p>
-<h3>2.4 O que o App não coleta</h3>
+<h3>2.4 Agendamento online</h3>
+<p>Se a profissional ligar o agendamento online, o App cria uma página pública (no endereço beleza-em-harmonia.web.app/<em>nome-escolhido</em>) onde os clientes pedem um horário.</p>
+<ul>
+  <li><strong>O que a página mostra a quem tem o link:</strong> o nome do negócio, os serviços escolhidos pela profissional (nome, duração e preço), os dias e o horário de atendimento e os horários já ocupados, <strong>só com início e fim</strong>, sem nome nem qualquer dado de clientes. A página não aparece em listas: só a abre quem recebe o endereço.</li>
+  <li><strong>O que o cliente envia ao pedir um horário:</strong> nome, telefone (WhatsApp), os serviços e o horário escolhidos e o idioma da página. Antes de enviar, o cliente marca que aceita mandar nome e telefone para a profissional confirmar o horário.</li>
+  <li>O pedido fica guardado na nuvem (seção 5) e <strong>só a profissional dona da página pode lê-lo</strong>. Quando ela aceita, o App cria o cliente e o atendimento no celular dela; quando aceita ou recusa, o pedido é apagado da nuvem.</li>
+  <li>A página não usa cookies, anúncios nem ferramentas de análise de uso.</li>
+</ul>
+<p>Nos pedidos, a profissional é a controladora dos dados do cliente e o App é o operador, como na seção 1.</p>
+<h3>2.5 O que o App não coleta</h3>
 <p>O App não coleta localização, fotos, identificador de publicidade nem dados de navegação, e não usa ferramentas de anúncios ou de análise de uso.</p>
 
 <h2>3. Para que os dados são usados</h2>
 <ul>
   <li>Mostrar a agenda, os clientes e as fichas, e calcular resumos (por exemplo, o total do dia).</li>
   <li>Avisos no próprio celular: resumo da manhã e lembrete antes de cada atendimento.</li>
-  <li>Montar mensagens de WhatsApp (confirmação, lembrete, retorno, aniversário) e o código Pix copia e cola do sinal.</li>
+  <li>Montar mensagens de WhatsApp (confirmação, lembrete, retorno, aniversário) e o código Pix copia e cola ou o link de pagamento do sinal.</li>
+  <li>Publicar a página de agendamento online e entregar à profissional os pedidos de horário dos clientes.</li>
   <li>Fazer o backup na nuvem e restaurar os dados em outro celular.</li>
   <li>Mostrar às colegas do mesmo grupo de trabalho os horários em que a profissional está ocupada.</li>
   <li>Controlar o teste grátis e a assinatura.</li>
@@ -114,6 +124,7 @@
 <ul>
   <li><strong>No celular:</strong> todos os dados ficam no armazenamento interno do App.</li>
   <li><strong>Na nuvem (backup):</strong> se a profissional entrar com a conta Google e o App estiver liberado (teste grátis ou assinatura), uma cópia vai para o <strong>Google Cloud Firestore (Firebase)</strong>, em servidores em <strong>São Paulo, Brasil</strong>. Os dados trafegam criptografados e são guardados criptografados pelo Google. Regras de acesso garantem que só a conta da profissional lê e grava o próprio backup.</li>
+  <li><strong>Agendamento online:</strong> a página pública e os pedidos de horário ficam no mesmo Firestore, em São Paulo. Os pedidos só podem ser lidos pela conta da profissional dona da página.</li>
 </ul>
 
 <h2>6. Com quem os dados são compartilhados</h2>
@@ -122,6 +133,7 @@
   <li><strong>Colegas do grupo de trabalho:</strong> veem o nome da profissional no grupo e, na agenda da equipe, os horários ocupados com o nome dos serviços, além de horários bloqueados como "Indisponível". <strong>Nunca veem nome, telefone ou qualquer dado dos clientes.</strong></li>
   <li><strong>WhatsApp:</strong> ao tocar para enviar uma mensagem, o App abre o WhatsApp com o texto pronto. O envio é feito pela profissional, pelo WhatsApp, e segue a política do WhatsApp.</li>
   <li><strong>Exportação:</strong> as planilhas que a profissional exporta e compartilha ficam sob a responsabilidade dela.</li>
+  <li><strong>Quem tem o link da página de agendamento</strong> vê o que está descrito na seção 2.4: nome do negócio, serviços, horário de atendimento e horários ocupados, nunca dados de clientes.</li>
 </ul>
 <p>Fora isso, os dados só são compartilhados se a lei ou uma autoridade competente exigir.</p>
 
@@ -131,12 +143,13 @@
   <li><strong>Na nuvem:</strong> enquanto a conta existir. Quando um registro é excluído no App, o backup guarda só um marcador técnico de exclusão, sem dados pessoais, para que outros aparelhos também o excluam.</li>
   <li><strong>Excluir a conta:</strong> em <strong>Mais &gt; Conta &gt; Excluir conta</strong>, o App apaga o backup na nuvem, tira a profissional dos grupos de trabalho e exclui o login. Também é possível pedir a exclusão por e-mail; veja <a href="excluir-conta.html">como excluir a conta e os dados</a>.</li>
   <li><strong>Convites de grupo</strong> vencem em 7 dias.</li>
+  <li><strong>Pedidos de agendamento online:</strong> ficam na nuvem até a profissional aceitar ou recusar. Ao mudar o endereço da página ou excluir a conta, a página, os horários ocupados publicados e os pedidos pendentes são apagados.</li>
   <li>A <strong>assinatura</strong> é cancelada à parte, no Google Play. Excluir a conta não cancela a assinatura.</li>
 </ul>
 
 <h2>8. Direitos</h2>
 <p>A profissional pode, a qualquer momento: ver e corrigir os dados no App; exportar tudo em planilhas (<strong>Mais &gt; Exportar dados</strong>); excluir clientes e registros; excluir a conta e o backup; e pedir informações pelo e-mail de contato.</p>
-<p><strong>Clientes das profissionais</strong> que quiserem acessar, corrigir ou excluir os próprios dados devem procurar a profissional que os atende, que é a controladora. O responsável pelo App ajuda a profissional a atender esses pedidos.</p>
+<p><strong>Clientes das profissionais</strong> que quiserem acessar, corrigir ou excluir os próprios dados devem procurar a profissional que os atende, que é a controladora. Isso vale também para quem enviou um pedido pelo agendamento online. O responsável pelo App ajuda a profissional a atender esses pedidos.</p>
 
 <h2>9. Segurança</h2>
 <p>O App usa a proteção do Android para o armazenamento interno, conexão criptografada com o servidor e regras de acesso por conta no Firestore. Nenhum sistema é totalmente imune a falhas; recomendamos manter o celular protegido por senha ou biometria.</p>
@@ -172,7 +185,7 @@
 <h3>2.1 The professional's data</h3>
 <ul>
   <li><strong>Google account</strong>, only if she signs in (optional): name, email and an account identifier. Sign-in is used for cloud backup and work groups. The App never receives the password.</li>
-  <li><strong>My business:</strong> professional or salon name, phone, Pix key, city and opening hours.</li>
+  <li><strong>My business:</strong> professional or salon name, phone, Pix key (in Brazil) or payment link (outside Brazil), city and opening hours.</li>
   <li><strong>WhatsApp message texts</strong> she customizes.</li>
   <li><strong>Subscription:</strong> subscription status (active, canceled etc.) and the free trial start. Payment is handled by Google Play; the App has no access to card details.</li>
   <li><strong>Name in a work group</strong>, if she joins one.</li>
@@ -188,14 +201,24 @@
 </ul>
 <h3>2.3 Phone contacts</h3>
 <p>Only when the professional taps import contacts does the App request the contacts permission and show the phone's list. From the contacts she <strong>selects</strong>, the App copies name, phone and birthday into the client list. Contacts that are not selected are not stored or sent anywhere.</p>
-<h3>2.4 What the App does not collect</h3>
+<h3>2.4 Online booking</h3>
+<p>If the professional turns on online booking, the App creates a public page (at beleza-em-harmonia.web.app/<em>chosen-name</em>) where clients request an appointment.</p>
+<ul>
+  <li><strong>What the page shows to anyone with the link:</strong> the business name, the services chosen by the professional (name, duration and price), the working days and hours, and the times already taken, <strong>with start and end only</strong>, without names or any client data. The page is not listed anywhere: only people who receive the address can open it.</li>
+  <li><strong>What the client sends when requesting a time:</strong> name, phone (WhatsApp), the chosen services and time, and the page language. Before sending, the client checks a box agreeing to send their name and phone to the professional so she can confirm the appointment.</li>
+  <li>The request is stored in the cloud (section 5) and <strong>only the professional who owns the page can read it</strong>. When she accepts, the App creates the client and the appointment on her phone; once she accepts or declines, the request is deleted from the cloud.</li>
+  <li>The page does not use cookies, advertising or usage analytics tools.</li>
+</ul>
+<p>For requests, the professional is the controller of the client's data and the App is the processor, as in section 1.</p>
+<h3>2.5 What the App does not collect</h3>
 <p>The App does not collect location, photos, advertising ID or browsing data, and does not use advertising or usage analytics tools.</p>
 
 <h2>3. What the data is used for</h2>
 <ul>
   <li>Showing the schedule, clients and records, and computing summaries (for example, the day's total).</li>
   <li>Notifications on the phone itself: morning summary and a reminder before each appointment.</li>
-  <li>Preparing WhatsApp messages (confirmation, reminder, return, birthday) and the Pix copy-and-paste code for deposits.</li>
+  <li>Preparing WhatsApp messages (confirmation, reminder, return, birthday) and the Pix copy-and-paste code or payment link for deposits.</li>
+  <li>Publishing the online booking page and delivering clients' appointment requests to the professional.</li>
   <li>Backing up to the cloud and restoring data on another phone.</li>
   <li>Showing colleagues in the same work group when the professional is busy.</li>
   <li>Managing the free trial and the subscription.</li>
@@ -209,6 +232,7 @@
 <ul>
   <li><strong>On the phone:</strong> all data is kept in the App's internal storage.</li>
   <li><strong>In the cloud (backup):</strong> if the professional signs in with Google and the App is unlocked (free trial or subscription), a copy goes to <strong>Google Cloud Firestore (Firebase)</strong>, on servers in <strong>São Paulo, Brazil</strong>. Data is encrypted in transit and stored encrypted by Google. Access rules ensure that only the professional's account can read and write her own backup.</li>
+  <li><strong>Online booking:</strong> the public page and appointment requests are stored in the same Firestore, in São Paulo. Requests can only be read by the account of the professional who owns the page.</li>
 </ul>
 
 <h2>6. Who the data is shared with</h2>
@@ -217,6 +241,7 @@
   <li><strong>Work group colleagues:</strong> see the professional's name in the group and, on the team schedule, her busy times with the service names, plus blocked times shown as "Unavailable". <strong>They never see clients' names, phone numbers or any client data.</strong></li>
   <li><strong>WhatsApp:</strong> when she taps to send a message, the App opens WhatsApp with the text ready. Sending is done by the professional, through WhatsApp, under WhatsApp's policy.</li>
   <li><strong>Exports:</strong> spreadsheets the professional exports and shares are her responsibility.</li>
+  <li><strong>Anyone with the booking page link</strong> sees what is described in section 2.4: business name, services, working hours and taken times, never client data.</li>
 </ul>
 <p>Otherwise, data is only shared if required by law or by a competent authority.</p>
 
@@ -226,12 +251,13 @@
   <li><strong>In the cloud:</strong> while the account exists. When a record is deleted in the App, the backup keeps only a technical deletion marker, with no personal data, so other devices delete it too.</li>
   <li><strong>Deleting the account:</strong> in <strong>More &gt; Account &gt; Delete account</strong>, the App erases the cloud backup, removes the professional from her work groups and deletes the sign-in. Deletion can also be requested by email; see <a href="excluir-conta.html#en">how to delete the account and data</a>.</li>
   <li><strong>Group invites</strong> expire after 7 days.</li>
+  <li><strong>Online booking requests:</strong> stay in the cloud until the professional accepts or declines them. When the page address is changed or the account is deleted, the page, the published taken times and any pending requests are deleted.</li>
   <li>The <strong>subscription</strong> is canceled separately, in Google Play. Deleting the account does not cancel the subscription.</li>
 </ul>
 
 <h2>8. Rights</h2>
 <p>The professional can at any time: view and correct data in the App; export everything as spreadsheets (<strong>More &gt; Export data</strong>); delete clients and records; delete the account and backup; and request information by email.</p>
-<p><strong>Clients of the professionals</strong> who want to access, correct or delete their own data should contact the professional who serves them, who is the controller. The person responsible for the App helps the professional handle these requests.</p>
+<p><strong>Clients of the professionals</strong> who want to access, correct or delete their own data should contact the professional who serves them, who is the controller. This also applies to anyone who sent a request through online booking. The person responsible for the App helps the professional handle these requests.</p>
 
 <h2>9. Security</h2>
 <p>The App relies on Android's protection of internal storage, an encrypted connection to the server and per-account access rules in Firestore. No system is completely immune to failures; we recommend protecting the phone with a password or biometrics.</p>
@@ -267,7 +293,7 @@
 <h3>2.1 Datos de la profesional</h3>
 <ul>
   <li><strong>Cuenta de Google</strong>, solo si inicia sesión (opcional): nombre, correo electrónico y un identificador de la cuenta. El inicio de sesión sirve para la copia en la nube y los grupos de trabajo. La App nunca recibe la contraseña.</li>
-  <li><strong>Mi negocio:</strong> nombre profesional o del salón, teléfono, clave Pix, ciudad y horario de atención.</li>
+  <li><strong>Mi negocio:</strong> nombre profesional o del salón, teléfono, clave Pix (en Brasil) o link de pago (fuera de Brasil), ciudad y horario de atención.</li>
   <li><strong>Textos de los mensajes</strong> de WhatsApp que personalice.</li>
   <li><strong>Suscripción:</strong> el estado de la suscripción (activa, cancelada, etc.) y el inicio de la prueba gratuita. El pago lo procesa Google Play; la App no tiene acceso a datos de tarjeta.</li>
   <li><strong>Nombre en el grupo de trabajo</strong>, si participa en uno.</li>
@@ -283,14 +309,24 @@
 </ul>
 <h3>2.3 Contactos del teléfono</h3>
 <p>Solo cuando la profesional toca importar contactos, la App pide el permiso de contactos y muestra la lista del teléfono. De los contactos que ella <strong>elige</strong>, la App copia nombre, teléfono y cumpleaños a la lista de clientes. Los contactos no elegidos no se guardan ni se envían a ningún lugar.</p>
-<h3>2.4 Lo que la App no recopila</h3>
+<h3>2.4 Reservas en línea</h3>
+<p>Si la profesional activa las reservas en línea, la App crea una página pública (en beleza-em-harmonia.web.app/<em>nombre-elegido</em>) donde los clientes piden un turno.</p>
+<ul>
+  <li><strong>Lo que la página muestra a quien tiene el link:</strong> el nombre del negocio, los servicios elegidos por la profesional (nombre, duración y precio), los días y el horario de atención y los horarios ya ocupados, <strong>solo con inicio y fin</strong>, sin nombre ni ningún dato de clientes. La página no aparece en listas: solo la abre quien recibe la dirección.</li>
+  <li><strong>Lo que el cliente envía al pedir un turno:</strong> nombre, teléfono (WhatsApp), los servicios y el horario elegidos y el idioma de la página. Antes de enviar, el cliente marca que acepta mandar su nombre y teléfono a la profesional para que confirme el turno.</li>
+  <li>El pedido se guarda en la nube (sección 5) y <strong>solo la profesional dueña de la página puede leerlo</strong>. Cuando ella lo acepta, la App crea el cliente y la cita en su teléfono; al aceptarlo o rechazarlo, el pedido se borra de la nube.</li>
+  <li>La página no usa cookies, publicidad ni herramientas de análisis de uso.</li>
+</ul>
+<p>En los pedidos, la profesional es la responsable de los datos del cliente y la App es la encargada, como en la sección 1.</p>
+<h3>2.5 Lo que la App no recopila</h3>
 <p>La App no recopila ubicación, fotos, identificador de publicidad ni datos de navegación, y no usa herramientas de publicidad ni de análisis de uso.</p>
 
 <h2>3. Para qué se usan los datos</h2>
 <ul>
   <li>Mostrar la agenda, los clientes y las fichas, y calcular resúmenes (por ejemplo, el total del día).</li>
   <li>Avisos en el propio teléfono: resumen de la mañana y recordatorio antes de cada cita.</li>
-  <li>Preparar mensajes de WhatsApp (confirmación, recordatorio, regreso, cumpleaños) y el código Pix de la seña.</li>
+  <li>Preparar mensajes de WhatsApp (confirmación, recordatorio, regreso, cumpleaños) y el código Pix o el link de pago de la seña.</li>
+  <li>Publicar la página de reservas en línea y entregar a la profesional los pedidos de turno de los clientes.</li>
   <li>Hacer la copia en la nube y restaurar los datos en otro teléfono.</li>
   <li>Mostrar a las colegas del mismo grupo de trabajo cuándo la profesional está ocupada.</li>
   <li>Gestionar la prueba gratuita y la suscripción.</li>
@@ -304,6 +340,7 @@
 <ul>
   <li><strong>En el teléfono:</strong> todos los datos se guardan en el almacenamiento interno de la App.</li>
   <li><strong>En la nube (copia):</strong> si la profesional inicia sesión con Google y la App está habilitada (prueba gratuita o suscripción), una copia va a <strong>Google Cloud Firestore (Firebase)</strong>, en servidores en <strong>São Paulo, Brasil</strong>. Los datos viajan cifrados y Google los guarda cifrados. Reglas de acceso garantizan que solo la cuenta de la profesional lee y escribe su propia copia.</li>
+  <li><strong>Reservas en línea:</strong> la página pública y los pedidos de turno se guardan en el mismo Firestore, en São Paulo. Los pedidos solo los puede leer la cuenta de la profesional dueña de la página.</li>
 </ul>
 
 <h2>6. Con quién se comparten los datos</h2>
@@ -312,6 +349,7 @@
   <li><strong>Colegas del grupo de trabajo:</strong> ven el nombre de la profesional en el grupo y, en la agenda del equipo, los horarios ocupados con el nombre de los servicios, además de horarios bloqueados como "No disponible". <strong>Nunca ven nombre, teléfono ni ningún dato de los clientes.</strong></li>
   <li><strong>WhatsApp:</strong> al tocar para enviar un mensaje, la App abre WhatsApp con el texto listo. El envío lo hace la profesional, por WhatsApp, según la política de WhatsApp.</li>
   <li><strong>Exportación:</strong> las planillas que la profesional exporta y comparte quedan bajo su responsabilidad.</li>
+  <li><strong>Quien tiene el link de la página de reservas</strong> ve lo descrito en la sección 2.4: nombre del negocio, servicios, horario de atención y horarios ocupados, nunca datos de clientes.</li>
 </ul>
 <p>Fuera de esto, los datos solo se comparten si la ley o una autoridad competente lo exige.</p>
 
@@ -321,12 +359,13 @@
   <li><strong>En la nube:</strong> mientras exista la cuenta. Cuando se elimina un registro en la App, la copia guarda solo una marca técnica de eliminación, sin datos personales, para que otros teléfonos también lo eliminen.</li>
   <li><strong>Eliminar la cuenta:</strong> en <strong>Más &gt; Cuenta &gt; Eliminar cuenta</strong>, la App borra la copia en la nube, saca a la profesional de los grupos de trabajo y elimina el inicio de sesión. También se puede pedir la eliminación por correo; mira <a href="excluir-conta.html#es">cómo eliminar la cuenta y los datos</a>.</li>
   <li>Las <strong>invitaciones de grupo</strong> vencen en 7 días.</li>
+  <li><strong>Pedidos de reservas en línea:</strong> quedan en la nube hasta que la profesional los acepta o rechaza. Al cambiar la dirección de la página o eliminar la cuenta, se borran la página, los horarios ocupados publicados y los pedidos pendientes.</li>
   <li>La <strong>suscripción</strong> se cancela por separado, en Google Play. Eliminar la cuenta no cancela la suscripción.</li>
 </ul>
 
 <h2>8. Derechos</h2>
 <p>La profesional puede, en cualquier momento: ver y corregir los datos en la App; exportar todo en planillas (<strong>Más &gt; Exportar datos</strong>); eliminar clientes y registros; eliminar la cuenta y la copia; y pedir información por correo.</p>
-<p><strong>Los clientes de las profesionales</strong> que quieran acceder, corregir o eliminar sus propios datos deben dirigirse a la profesional que los atiende, que es la responsable. El responsable de la App ayuda a la profesional a atender esas solicitudes.</p>
+<p><strong>Los clientes de las profesionales</strong> que quieran acceder, corregir o eliminar sus propios datos deben dirigirse a la profesional que los atiende, que es la responsable. Esto vale también para quien envió un pedido por las reservas en línea. El responsable de la App ayuda a la profesional a atender esas solicitudes.</p>
 
 <h2>9. Seguridad</h2>
 <p>La App usa la protección de Android para el almacenamiento interno, conexión cifrada con el servidor y reglas de acceso por cuenta en Firestore. Ningún sistema es totalmente inmune a fallas; recomendamos proteger el teléfono con contraseña o biometría.</p>
