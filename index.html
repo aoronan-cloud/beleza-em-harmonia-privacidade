@@ -302,7 +302,7 @@
 <ul>
   <li>Nombre, teléfono y fecha de cumpleaños.</li>
   <li>Observaciones y <strong>alergias y sensibilidades</strong>. La información sobre alergias es un <strong>dato personal sensible</strong> (dato de salud) y sirve para la seguridad del cliente durante la atención.</li>
-  <li>Citas: fecha, hora, servicios, valores, seña y estado (confirmada, no asistió, etc.).</li>
+  <li>Citas: fecha, hora, servicios, valores, anticipo y estado (confirmada, no asistió, etc.).</li>
   <li>Fichas técnicas, como fórmulas de coloración.</li>
   <li>Análisis de visagismo: la forma del rostro y los objetivos elegidos por la profesional. <strong>La App no toma ni guarda fotos de clientes.</strong></li>
   <li>El registro, con la fecha, de que el cliente autorizó guardar sus datos.</li>
@@ -310,10 +310,10 @@
 <h3>2.3 Contactos del teléfono</h3>
 <p>Solo cuando la profesional toca importar contactos, la App pide el permiso de contactos y muestra la lista del teléfono. De los contactos que ella <strong>elige</strong>, la App copia nombre, teléfono y cumpleaños a la lista de clientes. Los contactos no elegidos no se guardan ni se envían a ningún lugar.</p>
 <h3>2.4 Reservas en línea</h3>
-<p>Si la profesional activa las reservas en línea, la App crea una página pública (en beleza-em-harmonia.web.app/<em>nombre-elegido</em>) donde los clientes piden un turno.</p>
+<p>Si la profesional activa las reservas en línea, la App crea una página pública (en beleza-em-harmonia.web.app/<em>nombre-elegido</em>) donde los clientes piden una cita.</p>
 <ul>
   <li><strong>Lo que la página muestra a quien tiene el link:</strong> el nombre del negocio, los servicios elegidos por la profesional (nombre, duración y precio), los días y el horario de atención y los horarios ya ocupados, <strong>solo con inicio y fin</strong>, sin nombre ni ningún dato de clientes. La página no aparece en listas: solo la abre quien recibe la dirección.</li>
-  <li><strong>Lo que el cliente envía al pedir un turno:</strong> nombre, teléfono (WhatsApp), los servicios y el horario elegidos y el idioma de la página. Antes de enviar, el cliente marca que acepta mandar su nombre y teléfono a la profesional para que confirme el turno.</li>
+  <li><strong>Lo que el cliente envía al pedir una cita:</strong> nombre, teléfono (WhatsApp), los servicios y el horario elegidos y el idioma de la página. Antes de enviar, el cliente marca que acepta mandar su nombre y teléfono a la profesional para que confirme la cita.</li>
   <li>El pedido se guarda en la nube (sección 5) y <strong>solo la profesional dueña de la página puede leerlo</strong>. Cuando ella lo acepta, la App crea el cliente y la cita en su teléfono; al aceptarlo o rechazarlo, el pedido se borra de la nube.</li>
   <li>Para bloquear pedidos falsos enviados por robots, la página usa <strong>Google reCAPTCHA</strong>, que analiza información del navegador y del dispositivo y puede guardar cookies para ello, según la <a href="https://policies.google.com/privacy">Política de Privacidad</a> y las <a href="https://policies.google.com/terms">Condiciones del Servicio</a> de Google. La página no usa publicidad ni herramientas de análisis de uso.</li>
 </ul>
@@ -325,8 +325,8 @@
 <ul>
   <li>Mostrar la agenda, los clientes y las fichas, y calcular resúmenes (por ejemplo, el total del día).</li>
   <li>Avisos en el propio teléfono: resumen de la mañana y recordatorio antes de cada cita.</li>
-  <li>Preparar mensajes de WhatsApp (confirmación, recordatorio, regreso, cumpleaños) y el código Pix o el link de pago de la seña.</li>
-  <li>Publicar la página de reservas en línea y entregar a la profesional los pedidos de turno de los clientes.</li>
+  <li>Preparar mensajes de WhatsApp (confirmación, recordatorio, regreso, cumpleaños) y el código Pix o el link de pago del anticipo.</li>
+  <li>Publicar la página de reservas en línea y entregar a la profesional los pedidos de cita de los clientes.</li>
   <li>Hacer la copia en la nube y restaurar los datos en otro teléfono.</li>
   <li>Mostrar a las colegas del mismo grupo de trabajo cuándo la profesional está ocupada.</li>
   <li>Gestionar la prueba gratuita y la suscripción.</li>
@@ -340,7 +340,7 @@
 <ul>
   <li><strong>En el teléfono:</strong> todos los datos se guardan en el almacenamiento interno de la App.</li>
   <li><strong>En la nube (copia):</strong> si la profesional inicia sesión con Google y la App está habilitada (prueba gratuita o suscripción), una copia va a <strong>Google Cloud Firestore (Firebase)</strong>, en servidores en <strong>São Paulo, Brasil</strong>. Los datos viajan cifrados y Google los guarda cifrados. Reglas de acceso garantizan que solo la cuenta de la profesional lee y escribe su propia copia.</li>
-  <li><strong>Reservas en línea:</strong> la página pública y los pedidos de turno se guardan en el mismo Firestore, en São Paulo. Los pedidos solo los puede leer la cuenta de la profesional dueña de la página.</li>
+  <li><strong>Reservas en línea:</strong> la página pública y los pedidos de cita se guardan en el mismo Firestore, en São Paulo. Los pedidos solo los puede leer la cuenta de la profesional dueña de la página.</li>
 </ul>
 
 <h2>6. Con quién se comparten los datos</h2>
